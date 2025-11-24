@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suntik Sosmed Gratis - Simulasi Visual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Halaman Utama -->
+        <section id="home-page" class="page active">
+            <h1>Suntik Sosmed Gratis</h1>
+            <p class="subtitle">Proses ini hanya simulasi visual.</p>
+
+            <form id="injection-form">
+                <div class="form-group">
+                    <label for="platform">Pilihan Platform:</label>
+                    <select id="platform" required>
+                        <option value="" disabled selected>Pilih Platform</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="TikTok">TikTok</option>
+                        <option value="YouTube">YouTube</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="type">Pilihan Jenis Suntik:</label>
+                    <select id="type" required>
+                        <option value="" disabled selected>Pilih Jenis Suntik</option>
+                        <option value="Follower">Follower</option>
+                        <option value="Like">Like</option>
+                        <option value="View">View / Penonton</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username atau Link Akun:</label>
+                    <input type="text" id="username" placeholder="Masukkan username atau link" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="target-count">Jumlah Target (100 - 100.000.000):</label>
+                    <input type="number" id="target-count" min="100" max="100000000" value="1000" required>
+                </div>
+
+                <button type="submit" id="start-process-btn">Mulai Proses</button>
+            </form>
+        </section>
+
+        <!-- Halaman Proses -->
+        <section id="process-page" class="page hidden">
+            <h2>Memproses Permintaan...</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <p class="progress-text" id="progress-percentage">0%</p>
+
+            <div class="status-box">
+                <p id="current-status">Memverifikasi data...</p>
+            </div>
+
+            <div class="injection-counter">
+                <p>Jumlah yang dikirim:</p>
+                <p class="counter-value" id="current-injected-count">0</p>
+                <p class="counter-label" id="injected-label">Follower</p>
+            </div>
+        </section>
+
+        <!-- Halaman Sukses -->
+        <section id="success-page" class="page hidden">
+            <h2 class="success-title">PROSES BERHASIL</h2>
+            <div class="summary-box">
+                <h3>Ringkasan:</h3>
+                <table>
+                    <tr>
+                        <td>Platform:</td>
+                        <td id="summary-platform"></td>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td id="summary-username"></td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Suntik:</td>
+                        <td id="summary-type"></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Target:</td>
+                        <td id="summary-target"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="button-group">
+                <button id="repeat-btn">Ulangi</button>
+                <button id="back-btn">Kembali</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

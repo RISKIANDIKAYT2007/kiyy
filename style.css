@@ -1,0 +1,327 @@
+/* style.css */
+
+:root {
+    --primary-color: #007bff; /* Blue for primary actions */
+    --secondary-color: #28a745; /* Green for success */
+    --background-color: #f8f9fa; /* Light gray background */
+    --card-background: #ffffff; /* White card background */
+    --text-color: #343a40; /* Dark text */
+    --border-color: #ced4da;
+    --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+h1 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+
+/* --- Form Styling (Home Page) --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    -webkit-appearance: none; /* Remove default styling for better consistency */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 700;
+}
+
+#start-process-btn {
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 10px;
+}
+
+#start-process-btn:hover {
+    background-color: #0056b3;
+}
+
+#start-process-btn:active {
+    transform: scale(0.99);
+}
+
+/* --- Process Page Styling --- */
+.page.hidden {
+    display: none;
+}
+
+#process-page h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.progress-container {
+    background-color: #e9ecef;
+    border-radius: 50px;
+    height: 25px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    transition: width 0.4s ease;
+    /* Realistic loading effect: stripes */
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.15) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 1rem 1rem;
+    animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+    from { background-position: 1rem 0; }
+    to { background-position: 0 0; }
+}
+
+.progress-text {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.status-box {
+    background-color: #e9ecef;
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-height: 50px;
+    margin-bottom: 30px;
+}
+
+#current-status {
+    font-style: italic;
+    color: #495057;
+}
+
+.injection-counter {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    background-color: #f1f8ff;
+}
+
+.injection-counter p {
+    margin: 5px 0;
+}
+
+.counter-value {
+    font-size: 3em;
+    font-weight: 900;
+    color: var(--primary-color);
+    /* Blinking effect for realism */
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.7; }
+}
+
+.counter-label {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #6c757d;
+}
+
+/* --- Success Page Styling --- */
+#success-page {
+    text-align: center;
+}
+
+.success-title {
+    color: var(--secondary-color);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.summary-box {
+    background-color: #e9f7ee; /* Light green background */
+    border: 1px solid var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.summary-box h3 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.summary-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.summary-box td {
+    padding: 8px 0;
+    border-bottom: 1px dashed #c3e6cb;
+}
+
+.summary-box tr:last-child td {
+    border-bottom: none;
+}
+
+.summary-box td:first-child {
+    font-weight: 600;
+    width: 40%;
+}
+
+.summary-box td:last-child {
+    text-align: right;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 15px;
+}
+
+#repeat-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#repeat-btn:hover {
+    background-color: #0056b3;
+}
+
+#back-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+#back-btn:hover {
+    background-color: #5a6268;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .success-title {
+        font-size: 2em;
+    }
+
+    .injection-counter {
+        padding: 15px;
+    }
+
+    .counter-value {
+        font-size: 2.5em;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+}
